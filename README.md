@@ -12,9 +12,9 @@ Zaaplikowanie modeli dyfuzyjnych; zamiast do obrazów to na przykład do równa�
 
 - `articles` - zbiór artykułów i notatki (będą uzupełniane)
 
-- `unet_test` - zbudowano model UNet i dla 10 różnych funkcji, różnej liczby epok (1000, 5000, 10000), dla różnych liczby iteracji (100, 350, 800), różnych funkcji zaszumienia (linera, cosine, exp), dla różnych funkcji loss (mse, rmse, mae, mape) wytrenowano modele osobno i zbadane wyniki, dodatkowo zrobiłam aproksymacje splajnami odszumionej funkcji i wygładzenie Guassowskie (dla obu policzyłam błędy względem odszumionej funkcji). Dla każdej liczby epok zapisałam do pliku JSON wyniki poszczególnych wyników dla poszczególnych parametrów i podsumowałam zestawieniem wyników w tabeli. W pliku `summary_all.ipynb` stworzono ranking dla poszczególnych parametrów.
+- `unet_test` - zbudowano model UNet i dla 10 różnych funkcji, różnej liczby epok (1000, 5000, 10000), dla różnych liczby iteracji (100, 350, 800), różnych funkcji zaszumienia (linera, cosine, exp), dla różnych funkcji loss (mse, rmse, mae, mape) wytrenowano modele osobno i zbadano wyniki, dodatkowo zrobiono aproksymacje splajnami odszumionej funkcji i wygładzenie Guassowskie (dla obu policzono błędy względem odszumionej funkcji). Dla każdej liczby epok zapisano do pliku JSON wyniki poszczególnych wyników dla poszczególnych parametrów i podsumowano zestawieniem wyników w tabeli. W pliku `summary_all.ipynb` stworzono ranking dla poszczególnych parametrów.
 
-- `UNetModele` - z innymi parametrmi (dla liczby iteracji T) wytrenowano i zapisano modele dla zbioru funkcji razem (tzn. zmienia się tylko liczba epok, liczbę iteracji, funkcja zaszumiania, MSE zostało użyte w każdym modelu). Nastepnie wygenerowano trzy różne funkcje, które są _zlepkiem_ tych użytych w trenowaniu i zbadano dla zapisanych modeli jak odbywa się proces odszumiania. Dodatkowo wykorystałam użyte wcześniej funkcje wygładzania i aproksymacji.
+- `UNetModele` - z innymi parametrmi (dla liczby iteracji T) wytrenowano i zapisano modele dla zbioru funkcji razem (tzn. zmienia się tylko liczba epok, liczbę iteracji, funkcja zaszumiania, MSE zostało użyte w każdym modelu). Nastepnie wygenerowano trzy różne funkcje, które są _zlepkiem_ tych użytych w trenowaniu i zbadano dla zapisanych modeli jak odbywa się proces odszumiania. Dodatkowo wykorystano użyte wcześniej funkcje wygładzania i aproksymacji.
 
 ### Przykładowy output:
 
@@ -23,8 +23,8 @@ Parametry:
 - funkcja: relu,
 - liczba epok: 10000,
 - T: 100,
-- beta:cosine,
-- funckja starty: MSE
+- beta: cosine,
+- funkcja straty: MSE
 
 ![alt text](image.png)
 
@@ -35,8 +35,8 @@ Parametry:
 - funkcja: sigmoid,
 - liczba epok: 10000,
 - T: 350,
-- beta:cosine,
-- funckja starty: RMSE
+- beta: cosine,
+- funkcja straty: RMSE
 
 ![alt text](image-2.png)
 
@@ -47,8 +47,8 @@ Parametry:
 - funkcja: sin,
 - liczba epok: 10000,
 - T: 100,
-- beta:linear,
-- funckja starty: MAE
+- beta: linear,
+- funkcja straty: MAE
 
 ![alt text](image-4.png)
 
@@ -59,8 +59,8 @@ Parametry:
 - funkcja: poly,
 - liczba epok: 10000,
 - T: 800,
-- beta:linear,
-- funckja starty: MAPE
+- beta: linear,
+- funkcja straty: MAPE
 
 ![alt text](image-6.png)
 
