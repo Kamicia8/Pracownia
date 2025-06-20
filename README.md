@@ -15,3 +15,53 @@ Zaaplikowanie modeli dyfuzyjnych; zamiast do obrazów to na przykład do równa�
 - `unet_test` - zbudowano model UNet i dla 10 różnych funkcji, różnej liczby epok (1000, 5000, 10000), dla różnych liczby iteracji (100, 350, 800), różnych funkcji zaszumienia (linera, cosine, exp), dla różnych funkcji loss (mse, rmse, mae, mape) wytrenowano modele osobno i zbadane wyniki, dodatkowo zrobiłam aproksymacje splajnami odszumionej funkcji i wygładzenie Guassowskie (dla obu policzyłam błędy względem odszumionej funkcji). Dla każdej liczby epok zapisałam do pliku JSON wyniki poszczególnych wyników dla poszczególnych parametrów i podsumowałam zestawieniem wyników w tabeli. W pliku `summary_all.ipynb` stworzono ranking dla poszczególnych parametrów.
 
 - `UNetModele` - z innymi parametrmi (dla liczby iteracji T) wytrenowano i zapisano modele dla zbioru funkcji razem (tzn. zmienia się tylko liczba epok, liczbę iteracji, funkcja zaszumiania, MSE zostało użyte w każdym modelu). Nastepnie wygenerowano trzy różne funkcje, które są _zlepkiem_ tych użytych w trenowaniu i zbadano dla zapisanych modeli jak odbywa się proces odszumiania. Dodatkowo wykorystałam użyte wcześniej funkcje wygładzania i aproksymacji.
+
+### Przykładowy output:
+
+Parametry:
+
+- funkcja: relu,
+- liczba epok: 10000,
+- T: 100,
+- beta:cosine,
+- funckja starty: MSE
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+Parametry:
+
+- funkcja: sigmoid,
+- liczba epok: 10000,
+- T: 350,
+- beta:cosine,
+- funckja starty: RMSE
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+Parametry:
+
+- funkcja: sin,
+- liczba epok: 10000,
+- T: 100,
+- beta:linear,
+- funckja starty: MAE
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+Parametry:
+
+- funkcja: poly,
+- liczba epok: 10000,
+- T: 800,
+- beta:linear,
+- funckja starty: MAPE
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
